@@ -1,6 +1,6 @@
 import { AppDataSource } from "../config/data-source";
 import { User } from "../entities/User";
-import  hashPassword from "./authService";
+import  hashPassword from "../utils";
 
 
 const userRepository = AppDataSource.getRepository(User);
