@@ -1,13 +1,13 @@
 {
   "name": "algoritmos-criptografia-hash",
   "version": "1.0.0",
-  "description": "",
+  "description": "Implementação de algoritmos de criptografia, hash, e segurança usando tokens JWT, bcrypt, e outras técnicas de segurança.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["criptografia", "hash", "algoritmos", "segurança", "jwt", "bcrypt"],
+  "author": "Alehandro Leandro Pedro",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {

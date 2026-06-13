@@ -10,6 +10,9 @@ export class User {
     @Column({type: "varchar", length: 120})
     email!: string;
 
+    @Column({type: "varchar", length: 120})
+    role!: string;
+    
     @Column({type: "varchar", length: 120 })
     hashedPassword!: string;
 }

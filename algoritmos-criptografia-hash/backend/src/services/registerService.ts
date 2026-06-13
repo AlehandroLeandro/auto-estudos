@@ -8,17 +8,18 @@ const userRepository = AppDataSource.getRepository(User);
 type UserRegisterInput = {
     name: string;
     email: string;
+    role: string;
     password: string;
 }
 
 export const registerAccount = async (input: UserRegisterInput) => {
-    const { name, email, password } = input;
+    const { name, email, role, password } = input;
 
     const contaExistente = await userRepository.findOneBy({ email });
 
     if(!contaExistente) {
         const hashedPassword = await hashPassword(password);
-        const newUser = userRepository.create({ name, email, hashedPassword });
+        const newUser = userRepository.create({ name, email, role, hashedPassword });
         await userRepository.save(newUser);
         return "Usuário registrado com sucesso";
     } else {
