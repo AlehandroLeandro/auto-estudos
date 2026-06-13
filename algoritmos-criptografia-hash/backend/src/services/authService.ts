@@ -9,6 +9,9 @@ type LoginInput = {
     email: string;
     password: string;
 }
+type LogoutInput = {
+    userId: number;
+}
 
 export const login = async (input: LoginInput) => {
     const { email, password } = input;
@@ -34,4 +37,16 @@ export const login = async (input: LoginInput) => {
         accessToken,
         refreshToken
     }
+}
+
+export const logout = async (input: LogoutInput) => {
+    const { userId } = input;
+    const user = await userRepository.findOneBy({ id: userId });
+
+    if(!user) {
+        throw new Error("Usuário não encontrado");
+    }
+
+    //remover acces e refresh token
+
 }
