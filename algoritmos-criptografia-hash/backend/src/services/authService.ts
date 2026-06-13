@@ -1,7 +1,7 @@
 import { User } from "../entities/User";
 import { AppDataSource } from "../config/data-source";
-import {verifyPassword} from "../utils";
-import {generateAccessToken, generateRefreshToken} from "../utils";
+import {verifyPassword, createAccessToken} from "../utils";
+import { createRefreshToken } from "./refreshTokenSessionService";
 
 const userRepository = AppDataSource.getRepository(User);
 
@@ -23,8 +23,8 @@ export const login = async (input: LoginInput) => {
         throw new Error("Usuário ou senha incorretos");
     }
 
-    const accessToken = generateAccessToken(user);
-    const refreshToken = generateRefreshToken(user);
+    const accessToken = createAccessToken(user);
+    const refreshToken = createRefreshToken({user});
      
     return {
         user: {

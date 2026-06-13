@@ -4,19 +4,19 @@ export class RefreshTokenSession {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @Column({type: "varchar", length: 120})
+    @Column({type: "int", length: 120})
     userId!: number;
     
     @Column({type: "varchar", length: 120})
     tokenHash!: string;
 
-    @Column({type: "varchar", length: 120})
-    expiresAt!: string;
+    @Column({type: "timestamp"})
+    expiresAt!: Date;
 
-    @Column({type: "varchar", length: 120})
-    revokedAt!: string;
-    
-    @Column({type: "varchar", length: 120})
-    createdAt!: string;
+    @Column({type: "timestamp"})
+    revokedAt!: Date | null;
+
+    @Column({type: "timestamp"})
+    createdAt!: Date;
 
 }
