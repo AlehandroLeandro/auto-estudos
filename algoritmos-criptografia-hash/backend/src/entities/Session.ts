@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column} from "typeorm";
-@Entity("refresh_token_sessions")
-export class RefreshTokenSession {
+@Entity("sessions")
+export class Session {
     @PrimaryGeneratedColumn()
     id!: number;
 
@@ -8,12 +8,12 @@ export class RefreshTokenSession {
     userId!: number;
     
     @Column({type: "varchar", length: 120})
-    tokenHash!: string;
+    refreshTokenHash!: string;
 
     @Column({type: "timestamp"})
     expiresAt!: Date;
 
-    @Column({type: "timestamp"})
+    @Column({type: "timestamp", nullable: true})
     revokedAt!: Date | null;
 
     @Column({type: "timestamp"})
