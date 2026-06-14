@@ -39,6 +39,4 @@ export const createRefreshToken = async({user,}: CreateRefreshTokenSessionInput)
     await refreshTokenSessionRepository.save(session);
 
     return refreshToken;
-
-
 }

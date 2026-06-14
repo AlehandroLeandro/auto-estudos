@@ -1,10 +1,7 @@
 import helmet from "helmet";
 import cors from "cors";
-import dotenv from "dotenv";
 import express from "express";
 import cookieParser from "cookie-parser";
-import path from "path";
-
 import { AppDataSource } from "./config/data-source";
 
 
